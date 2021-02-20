@@ -3,10 +3,11 @@ import {ExcelComponent} from '@core/ExcelComponent';
 export class Header extends ExcelComponent {
   static className = 'excel__header'
 
-  constructor($root) {
+  constructor($root, options) {
     super($root, {
       name: 'Header',
-      listeners: ['click', 'input']
+      listeners: ['click', 'input'],
+      ...options
     })
   }
 
@@ -14,9 +15,8 @@ export class Header extends ExcelComponent {
     console.log('Header onClick', event)
   }
 
-  onInput(event) {
+  onInput() {
     console.log('this', this, 'onInput this_root', this.$root)
-    // console.log('Header onInput', event.target.value)
     this.destroy()
   }
 
